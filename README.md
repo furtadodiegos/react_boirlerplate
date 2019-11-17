@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/furtadodiegos/react_boirlerplate.svg?branch=master)](https://travis-ci.org/furtadodiegos/react_boirlerplate)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Idea of this repository
