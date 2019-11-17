@@ -13,6 +13,6 @@ describe('The stateful notifications viewer', async () => {
     const component = instance.findByProps({ className: 'page_home' });
     const text = component.children[0];
 
-    expect(text).toEqual('Home page');
+    expect(text).toEqual('Home pagex');
   });
 });
