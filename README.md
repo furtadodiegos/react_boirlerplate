@@ -1,68 +1,100 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Idea of this repository
 
-In the project directory, you can run:
+Remind me and be one step-by-step to any React project
 
-### `yarn start`
+## Start
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Create the app
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+`create-react-app <projectName>`
 
-### `yarn test`
+- Clean the directory "src":
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`rm -rf App.css index.css logo.svg`
 
-### `yarn build`
+- Install devDependencies:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npx install-peerdeps --dev eslint-config-airbnb`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+`yarn add react-test-renderer prettier eslint-config-prettier eslint-plugin-prettier`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Configure ".eslintrc" and ".prettierrc"
 
-### `yarn eject`
+```
+// .eslintrc
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "react"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "prettier/prettier": ["error"],
+    "react/jsx-props-no-spreading": "off"
+  }
+}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+// .prettierrc
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+{
+  "useTabs": false,
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "jsxBracketSameLine": false,
+  "arrowParens": "always",
+  "semi": true
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Install dependencies
 
-## Learn More
+`yarn add @material-ui/core @material-ui/icons @material-ui/styles classnames formik yup prop-types react-placeholder react-redux react-router-dom connected-react-router history react-transition-group redux redux-saga reselect`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Create dir structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`cd src && mkdir api configs contexts pages utils`
 
-### Code Splitting
+## DirStructure
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### Api
 
-### Analyzing the Bundle Size
+Grouped by routes and should be like:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![dirStructure](./public/screenshots/dirStructure.png)
 
-### Making a Progressive Web App
+#### Configs
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Should contain the app configuration.
 
-### Advanced Configuration
+#### Contexts
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Should contain all the context configuration.
 
-### Deployment
+#### Pages
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Pages are the entry point of each route and should render components and containers
 
-### `yarn build` fails to minify
+#### Utils
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Should contain helpers functions
+
+## Page Structure
+
+![pageStructure](./public/screenshots/wireframe.png)
+
+#### Component
+
+Don't need to communicate with Redux
+
+#### Container
+
+Communicates with Redux
